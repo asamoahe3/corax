@@ -14,7 +14,7 @@ func main() {
 	}
 
 	cor := cors.New(cors.Options{
-		AllowedOrigins: []string{"*"},
+		AllowedOrigins: []string{"http://127.0.0.1:5501"},
 		AllowedHeaders: []string{"*"},
 		AllowedMethods: []string{"GET"},
 	})
