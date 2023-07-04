@@ -3,7 +3,6 @@ package main
 import (
 	"encoding/json"
 	"io/ioutil"
-	"log"
 	"net/http"
 )
 
@@ -21,12 +20,4 @@ func MakeGetRequest(url string, reciever interface{}) (err error) {
 	}
 
 	return
-}
-
-func init() {
-
-	//Get request to dummyjson.com/products endpoint
-	if err := MakeGetRequest("https://dummyjson.com/products", &products); err != nil {
-		log.Fatal(err)
-	}
 }

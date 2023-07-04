@@ -8,7 +8,7 @@ import (
 )
 
 func greetings() string {
-	return fmt.Sprintf("Good day 😇, its %v on our clock", time.Now().Format(time.RFC1123Z))
+	return fmt.Sprintf("Good day 😇, its %v on our clock", time.Now().Format(time.Kitchen))
 }
 
 // func homeHandler() writes the current time when initial request is made
@@ -24,5 +24,5 @@ func homeHandler(w http.ResponseWriter, r *http.Request) {
 // func dummyProduct() return a json endcoded data from dummyjson.com
 func dummyProduct(w http.ResponseWriter, r *http.Request) {
 	w.Header().Set("Content-Type", "application/json")
-	json.NewEncoder(w).Encode(products)
+	json.NewEncoder(w).Encode(TempJson)
 }

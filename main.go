@@ -7,6 +7,8 @@ import (
 	"os"
 )
 
+var TempJson map[string]interface{}
+
 func main() {
 	port := os.Getenv("PORT")
 	if port == "" {
@@ -18,6 +20,10 @@ func main() {
 		AllowedHeaders: []string{"*"},
 		AllowedMethods: []string{"GET"},
 	})
+
+	if err := MakeGetRequest("https://dummyjson.com/users", &TempJson); err != nil {
+		log.Fatal(err.Error())
+	}
 
 	mux := http.NewServeMux()
 	mux.HandleFunc("/", homeHandler)
